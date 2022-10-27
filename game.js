@@ -1,10 +1,10 @@
 const question = document.getElementById("question");
 const game = document.getElementById("game");
 const loader = document.getElementById("loader");
-
 const progressText = document.getElementById("progressText");
 const scoreText = document.getElementById("score");
 const progressBarFull = document.getElementById("progressBarFull");
+
 
 // convert the HTML collection of "choice-text" into an array
 const choices = Array.from(document.getElementsByClassName("choice-text"));
@@ -20,6 +20,7 @@ let availableQuesions = [];
 
 let questions = [];
 
+// fetch questions from the tech category
 fetch("https://opentdb.com/api.php?amount=10&category=18&type=multiple")
   .then((res) => {
     return res.json();
@@ -48,6 +49,7 @@ fetch("https://opentdb.com/api.php?amount=10&category=18&type=multiple")
   .catch((err) => {
     console.error(err);
   });
+
 // constants
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 10;
@@ -125,4 +127,3 @@ incrementScore = (num) => {
   score += num;
   scoreText.innerText = score;
 };
-// startGame();
